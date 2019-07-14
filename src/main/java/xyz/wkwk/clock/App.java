@@ -34,8 +34,15 @@ public class App {
 		// 最前面
 		fr.setAlwaysOnTop(true);
 
-		// ラベル追加
+		// 最小化されないようにする
+		fr.addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowIconified(WindowEvent e) {
+				fr.setState(JFrame.NORMAL);
+			}
+		});
 
+		// ラベル追加
 		final JLabel lblClock = new JLabel("moge");
 		Font font = new Font("Arial", Font.BOLD, 120);
 		lblClock.setFont(font);
